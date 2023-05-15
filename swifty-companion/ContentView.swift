@@ -16,52 +16,56 @@ struct ContentView: View {
                 Color.green
                     .edgesIgnoringSafeArea(.all)
                 VStack {
-                    VStack {
-                        Text("Swifty-Companion")
-                            .fontWeight(.bold)
-                            .font(.largeTitle)
-                            .padding()
-                        Text("Want to stalk someone of the 42 network?\nHere's your app!")
-                            .bold()
-                            .multilineTextAlignment(.center)
-                            
-                        
-                        Button(action: {
-                            homePageView = true
-                        }) {
-                            Label("Start", systemImage: "arrowtriangle.right.circle.fill")
-                                .fontWeight(.bold)
-                                .foregroundColor(.green)
-                                .font(.title3)
-                                .padding()
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.green, lineWidth: 3)
-                                )
-                        }
+                    Text("Swifty-Companion")
+                        .fontWeight(.bold)
+                        .font(.largeTitle)
                         .padding()
+                    Text("Want to stalk someone of the 42 network?\nHere's your app!")
+                        .bold()
+                        .multilineTextAlignment(.center)
+                        
+                    
+                    Button(action: {
+                        homePageView = true
+                    }) {
+                        Label("Start", systemImage: "arrowtriangle.right.circle.fill")
+                            .fontWeight(.bold)
+                            .foregroundColor(.green)
+                            .font(.title3)
+                            .padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.green, lineWidth: 3)
+                            )
                     }
                     .padding()
-                    .background(.white)
-                    .cornerRadius(20)
-                    .shadow(radius: 10)
+                    
+                    NavigationLink(destination: HomePageView(), isActive: $homePageView) {
+                        EmptyView()
+                    }
+
                 }
+                .padding()
+                .background(.white)
+                .cornerRadius(20)
+                .shadow(radius: 10)
             }
         }
     }
 }
 
-//struct HomePageView: View {
-//    var body : some View {
-//        NavigationView {
-//            ZStack {
-//                Text("Here's the Home Page.")
-//                    .font(.title)
-//            }
-//        }
-//        .navigationBarTitle("Research page")
-//    }
-//}
+struct HomePageView: View {
+    var body : some View {
+        NavigationView {
+            ZStack {
+                Color.green
+                    .edgesIgnoringSafeArea(.all)
+                Text("Here's the Home Page.")
+                    .font(.title)
+            }
+        }
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

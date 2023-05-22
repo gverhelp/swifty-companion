@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D569A942A1B853F0085E456 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D569A932A1B853F0085E456 /* UserModel.swift */; };
 		6D587E612A0D093C006DFB11 /* swifty_companionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D587E602A0D093C006DFB11 /* swifty_companionApp.swift */; };
 		6D587E632A0D093C006DFB11 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D587E622A0D093C006DFB11 /* HomePageView.swift */; };
 		6D587E652A0D093F006DFB11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D587E642A0D093F006DFB11 /* Assets.xcassets */; };
-		6D587E722A0D0940006DFB11 /* swifty_companionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D587E712A0D0940006DFB11 /* swifty_companionTests.swift */; };
-		6D587E7C2A0D0940006DFB11 /* swifty_companionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D587E7B2A0D0940006DFB11 /* swifty_companionUITests.swift */; };
-		6D587E7E2A0D0940006DFB11 /* swifty_companionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D587E7D2A0D0940006DFB11 /* swifty_companionUITestsLaunchTests.swift */; };
 		6D7DE7E72A13B419006F6590 /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7DE7E62A13B419006F6590 /* SearchPageView.swift */; };
+		6DE02DA32A17C21C0015DB56 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE02DA22A17C21C0015DB56 /* APICall.swift */; };
+		6DE02DA62A1916760015DB56 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE02DA52A1916760015DB56 /* SearchBarView.swift */; };
+		6DE02DAA2A191FBA0015DB56 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE02DA92A191FBA0015DB56 /* TokenModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +35,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D569A932A1B853F0085E456 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		6D587E5D2A0D093C006DFB11 /* swifty-companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swifty-companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D587E602A0D093C006DFB11 /* swifty_companionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swifty_companionApp.swift; sourceTree = "<group>"; };
 		6D587E622A0D093C006DFB11 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		6D587E642A0D093F006DFB11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D587E6D2A0D0940006DFB11 /* swifty-companionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swifty-companionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D587E712A0D0940006DFB11 /* swifty_companionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swifty_companionTests.swift; sourceTree = "<group>"; };
 		6D587E772A0D0940006DFB11 /* swifty-companionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swifty-companionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D587E7B2A0D0940006DFB11 /* swifty_companionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swifty_companionUITests.swift; sourceTree = "<group>"; };
-		6D587E7D2A0D0940006DFB11 /* swifty_companionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swifty_companionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6D7DE7E62A13B419006F6590 /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
+		6DE02DA22A17C21C0015DB56 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		6DE02DA52A1916760015DB56 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		6DE02DA92A191FBA0015DB56 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				6D587E5F2A0D093C006DFB11 /* swifty-companion */,
-				6D587E702A0D0940006DFB11 /* swifty-companionTests */,
-				6D587E7A2A0D0940006DFB11 /* swifty-companionUITests */,
 				6D587E5E2A0D093C006DFB11 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +94,8 @@
 		6D587E5F2A0D093C006DFB11 /* swifty-companion */ = {
 			isa = PBXGroup;
 			children = (
+				6DE02DA42A1916250015DB56 /* Models */,
+				6DE02DA12A17C1E40015DB56 /* Backend */,
 				6D7DE7E82A13B518006F6590 /* Views */,
 				6D587E602A0D093C006DFB11 /* swifty_companionApp.swift */,
 				6D587E642A0D093F006DFB11 /* Assets.xcassets */,
@@ -101,30 +103,31 @@
 			path = "swifty-companion";
 			sourceTree = "<group>";
 		};
-		6D587E702A0D0940006DFB11 /* swifty-companionTests */ = {
-			isa = PBXGroup;
-			children = (
-				6D587E712A0D0940006DFB11 /* swifty_companionTests.swift */,
-			);
-			path = "swifty-companionTests";
-			sourceTree = "<group>";
-		};
-		6D587E7A2A0D0940006DFB11 /* swifty-companionUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6D587E7B2A0D0940006DFB11 /* swifty_companionUITests.swift */,
-				6D587E7D2A0D0940006DFB11 /* swifty_companionUITestsLaunchTests.swift */,
-			);
-			path = "swifty-companionUITests";
-			sourceTree = "<group>";
-		};
 		6D7DE7E82A13B518006F6590 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				6D7DE7E62A13B419006F6590 /* SearchPageView.swift */,
 				6D587E622A0D093C006DFB11 /* HomePageView.swift */,
+				6DE02DA52A1916760015DB56 /* SearchBarView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6DE02DA12A17C1E40015DB56 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				6DE02DA22A17C21C0015DB56 /* APICall.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		6DE02DA42A1916250015DB56 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6DE02DA92A191FBA0015DB56 /* TokenModel.swift */,
+				6D569A932A1B853F0085E456 /* UserModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +146,8 @@
 			dependencies = (
 			);
 			name = "swifty-companion";
+			packageProductDependencies = (
+			);
 			productName = "swifty-companion";
 			productReference = 6D587E5D2A0D093C006DFB11 /* swifty-companion.app */;
 			productType = "com.apple.product-type.application";
@@ -190,6 +195,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
@@ -215,6 +223,8 @@
 				Base,
 			);
 			mainGroup = 6D587E542A0D093C006DFB11;
+			packageReferences = (
+			);
 			productRefGroup = 6D587E5E2A0D093C006DFB11 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -256,9 +266,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DE02DA62A1916760015DB56 /* SearchBarView.swift in Sources */,
+				6DE02DAA2A191FBA0015DB56 /* TokenModel.swift in Sources */,
+				6DE02DA32A17C21C0015DB56 /* APICall.swift in Sources */,
 				6D587E632A0D093C006DFB11 /* HomePageView.swift in Sources */,
 				6D7DE7E72A13B419006F6590 /* SearchPageView.swift in Sources */,
 				6D587E612A0D093C006DFB11 /* swifty_companionApp.swift in Sources */,
+				6D569A942A1B853F0085E456 /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +280,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D587E722A0D0940006DFB11 /* swifty_companionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D587E7C2A0D0940006DFB11 /* swifty_companionUITests.swift in Sources */,
-				6D587E7E2A0D0940006DFB11 /* swifty_companionUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +430,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"swifty-companion/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "swifty-companion/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -448,6 +460,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"swifty-companion/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "swifty-companion/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

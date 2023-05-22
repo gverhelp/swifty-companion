@@ -7,48 +7,48 @@
 
 import SwiftUI
 
+let backgroundColor = Color.green
+
 struct ContentView: View {
-    @State private var showSearchPageView = false
     
     var body: some View {
         NavigationView {
             ZStack {
-                Color.green
+                
+                backgroundColor
                     .edgesIgnoringSafeArea(.all)
+
                 VStack {
                     Text("Swifty-Companion")
                         .fontWeight(.bold)
                         .font(.largeTitle)
-                        .padding()
+                        .padding(10)
+                    
+                    Divider()
+
                     Text("Want to stalk someone of the 42 network?\nHere's your app!")
                         .bold()
                         .multilineTextAlignment(.center)
-
-
-                    Button(action: {
-                        showSearchPageView = true
-                    }) {
+                        .padding(10)
+                    
+                    NavigationLink(destination: SearchPageView()) {
                         Label("Start", systemImage: "arrowtriangle.right.circle.fill")
                             .fontWeight(.bold)
-                            .foregroundColor(.green)
+                            .foregroundColor(backgroundColor)
                             .font(.title3)
                             .padding(10)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.green, lineWidth: 3)
+                                    .stroke(backgroundColor, lineWidth: 3)
                             )
+                            .padding(10)
                     }
-                    .padding()
-
-                    NavigationLink(destination: SearchPageView(), isActive: $showSearchPageView) {
-                        EmptyView()
-                    }
-
                 }
-                .padding()
+                .padding(10)
                 .background(.white)
                 .cornerRadius(20)
                 .shadow(radius: 10)
+                .padding()
             }
             .navigationTitle("Home")
             .toolbar(.hidden, for:.navigationBar)

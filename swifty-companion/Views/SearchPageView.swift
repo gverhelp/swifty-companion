@@ -18,37 +18,39 @@ struct SearchPageView: View {
     
     var body : some View {
         NavigationView {
-            ZStack {
-
-                backgroundColor
-                    .edgesIgnoringSafeArea(.all)
-                
-                VStack {
+            if (apiCall.tokenGenerated) {
+                ZStack {
+                    backgroundColor
+                        .edgesIgnoringSafeArea(.all)
                     
-                    SearchBar(text: $searchText, onCommit: search)
-                        .padding()
-
-                    if showText {
-                        (Text(Image(systemName: "questionmark.circle.fill"))
-                            .foregroundColor(backgroundColor)
-                            .font(.system(size: 50))
-                         
-                         + Text("\n\nTo look at someone's profile and get all the datas you want to see, just type the login of this person in the search bar!")
-                        )
-                        .padding(25)
-                        .background(.white)
-                        .cornerRadius(20)
-                        .shadow(radius: 10)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                    }
-                    
-                    if showSearchResults {
-                        List(searchResults, id: \.self) { result in
-                            Text(result)
+                    VStack {
+                        SearchBar(text: $searchText, onCommit: search)
+                            .padding()
+                        
+                        if showText {
+                            (Text(Image(systemName: "questionmark.circle.fill"))
+                                .foregroundColor(backgroundColor)
+                                .font(.system(size: 50))
+                             
+                             + Text("\n\nTo look at someone's profile and get all the datas you want to see, just type the login of this person in the search bar!")
+                            )
+                            .padding(25)
+                            .background(.white)
+                            .cornerRadius(20)
+                            .shadow(radius: 10)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                        }
+                        
+                        if showSearchResults {
+                            List(searchResults, id: \.self) { result in
+                                Text(result)
+                            }
                         }
                     }
                 }
+            } else {
+                LoadingView()
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -62,7 +64,6 @@ struct SearchPageView: View {
             Task {
                 do {
                     try await apiCall.generateToken()
-                    //print(tokenAPI.tokenGenerated)
                     try await apiCall.getUserCall(login: "gverhelp")
                 } catch let error {
                     print(error.localizedDescription)
@@ -75,5 +76,11 @@ struct SearchPageView: View {
         searchResults = (1...10).map { "Result \($0)" }
         showSearchResults = true
         showText = false
+    }
+}
+
+struct SearchPageView_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchPageView()
     }
 }

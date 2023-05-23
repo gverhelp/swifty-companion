@@ -9,15 +9,14 @@ import SwiftUI
 
 let backgroundColor = Color.green
 
-struct ContentView: View {
+struct HomePageView: View {
     
     var body: some View {
         NavigationView {
             ZStack {
-                
                 backgroundColor
                     .edgesIgnoringSafeArea(.all)
-
+                    
                 VStack {
                     Text("Swifty-Companion")
                         .fontWeight(.bold)
@@ -25,12 +24,11 @@ struct ContentView: View {
                         .padding(10)
                     
                     Divider()
-
+                    
                     Text("Want to stalk someone of the 42 network?\nHere's your app!")
                         .bold()
                         .multilineTextAlignment(.center)
                         .padding(10)
-                    
                     NavigationLink(destination: SearchPageView()) {
                         Label("Start", systemImage: "arrowtriangle.right.circle.fill")
                             .fontWeight(.bold)
@@ -56,8 +54,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomePageView()
     }
 }

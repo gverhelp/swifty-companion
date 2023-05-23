@@ -6,7 +6,12 @@
 //
 
 import Foundation
-import SwiftUI
+
+enum ThrowException: Error {
+    case InvalidURL
+    case API42_UIDFailed
+    case API42_SECRETFailed
+}
 
 class APICall: ObservableObject {
     @Published private var token: Token?
@@ -18,18 +23,17 @@ class APICall: ObservableObject {
         let urlString = "https://api.intra.42.fr/oauth/token"
         
         guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
+            throw ThrowException.InvalidURL
         }
         
         guard let uid = ProcessInfo.processInfo.environment["API42_UID"] else {
-            return
+            throw ThrowException.API42_UIDFailed
         }
         
         guard let secret = ProcessInfo.processInfo.environment["API42_SECRET"] else {
-            return
+            throw ThrowException.API42_SECRETFailed
         }
-        
+
         let postBody = "grant_type=client_credentials&client_id=\(uid)&client_secret=\(secret)"
         
         var request = URLRequest(url: url)
@@ -39,13 +43,13 @@ class APICall: ObservableObject {
         let (data, _) = try await URLSession.shared.data(for: request)
         
         let tokenInfos = try JSONDecoder().decode(Token.self, from: data)
-
+        
         self.token = tokenInfos
         self.tokenGenerated = true
     }
     
     public func getUserCall(login: String) async throws -> Void {
-
+        
         let urlString = "https://api.intra.42.fr/v2/users/\(login)"
         
         guard let url = URL(string: urlString) else {
@@ -55,14 +59,16 @@ class APICall: ObservableObject {
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.allHTTPHeaderFields = ["AUthorization":"Bearer \(token!.access_token)"]
-
+        request.allHTTPHeaderFields = ["Authorization":"Bearer \(token!.access_token)"]
+        
         let (data, _) = try await URLSession.shared.data(for: request)
         
-        print("===================================================================================================================================================================================================================================================================================================================================================================")
         let userInfos = try JSONDecoder().decode(User.self, from: data)
+        
+        self.user = userInfos
         print(userInfos)
     }
+}
 
 //    public func fetchData() async {
 //        if token == nil {
@@ -74,4 +80,3 @@ class APICall: ObservableObject {
 //            }
 //        }
 //    }
-}

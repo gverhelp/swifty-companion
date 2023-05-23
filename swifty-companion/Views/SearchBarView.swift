@@ -14,7 +14,6 @@ struct SearchBar: View {
     var body: some View {
         HStack {
             TextField("Enter a login", text: $text)
-                //.textFieldStyle(RoundedBorderTextFieldStyle())
             
             Button(action: onCommit) {
                 Image(systemName: "magnifyingglass")

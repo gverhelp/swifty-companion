@@ -17,15 +17,16 @@ class APICall: ObservableObject {
     @Published private var token: Token?
     @Published private var user: User?
     @Published public var tokenGenerated: Bool = false
+    @Published public var doUserExist: Bool = true
     
-    public func generateToken() async throws -> Void {
+    public func generateToken() async throws -> Token {
         
         let urlString = "https://api.intra.42.fr/oauth/token"
         
         guard let url = URL(string: urlString) else {
             throw ThrowException.InvalidURL
         }
-        
+
         guard let uid = ProcessInfo.processInfo.environment["API42_UID"] else {
             throw ThrowException.API42_UIDFailed
         }
@@ -44,17 +45,15 @@ class APICall: ObservableObject {
         
         let tokenInfos = try JSONDecoder().decode(Token.self, from: data)
         
-        self.token = tokenInfos
-        self.tokenGenerated = true
+        return tokenInfos
     }
-    
-    public func getUserCall(login: String) async throws -> Void {
+
+    public func callGetUser(login: String) async throws -> User {
         
         let urlString = "https://api.intra.42.fr/v2/users/\(login)"
         
         guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
+            throw ThrowException.InvalidURL
         }
         
         var request = URLRequest(url: url)
@@ -65,18 +64,35 @@ class APICall: ObservableObject {
         
         let userInfos = try JSONDecoder().decode(User.self, from: data)
         
-        self.user = userInfos
-        print(userInfos)
+        return userInfos
+    }
+
+    public func getUser() -> User {
+        return user!
+    }
+
+    @MainActor
+    public func fetchTokenData() async {
+        if token == nil {
+            do {
+                token = try await generateToken()
+                tokenGenerated = true
+                print(token as Any)
+            } catch let error {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    @MainActor
+    public func fetchUserData(login: String) async {
+        do {
+            user = try await callGetUser(login: login)
+            doUserExist = true
+            print(user as Any)
+        } catch let error {
+            doUserExist = false
+            print("Error: \(error.localizedDescription)")
+        }
     }
 }
-
-//    public func fetchData() async {
-//        if token == nil {
-//            do {
-//                try await generateToken()
-//                print(token as Any)
-//            } catch let error {
-//                print("Error: \(error.localizedDescription)")
-//            }
-//        }
-//    }

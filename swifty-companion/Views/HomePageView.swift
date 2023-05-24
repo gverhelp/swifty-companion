@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let backgroundColor = Color.green
+let backgroundColor = Color.orange
 
 struct HomePageView: View {
     
@@ -29,6 +29,7 @@ struct HomePageView: View {
                         .bold()
                         .multilineTextAlignment(.center)
                         .padding(10)
+                    
                     NavigationLink(destination: SearchPageView()) {
                         Label("Start", systemImage: "arrowtriangle.right.circle.fill")
                             .fontWeight(.bold)

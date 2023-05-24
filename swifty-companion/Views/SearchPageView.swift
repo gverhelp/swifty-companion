@@ -28,7 +28,7 @@ struct SearchPageView: View {
                         .edgesIgnoringSafeArea(.all)
 
                     VStack {
-                        
+
                         SearchBar(selectedLogin: $selectedLogin, onCommit: search)
                             .padding()
                         
@@ -127,13 +127,13 @@ extension View {
             return AnyView(AsyncImage(url: url) { image in
                 image
                     .resizable()
-                    .frame(width: 100, height: 75)
+                    .frame(width: 100, height: 80)
                     .cornerRadius(15)
             } placeholder: {
                 ProgressView()
             })
         } else {
-            return AnyView(Image(systemName: "placeholder-image"))
+            return AnyView(Image(systemName: "person"))
         }
     }
 }

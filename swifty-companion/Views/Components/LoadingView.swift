@@ -2,7 +2,7 @@
 //  LoadingView.swift
 //  swifty-companion
 //
-//  Created by Garreth Verhelpen on 23/05/2023.
+//  Created by Garreth Verhelpen on 24/05/2023.
 //
 
 import SwiftUI
@@ -13,13 +13,7 @@ struct LoadingView: View {
             backgroundColor
                 .edgesIgnoringSafeArea(.all)
             ProgressView()
-                .scaleEffect(3)
+                .scaleEffect(2)
         }
-    }
-}
-
-struct LoadingView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoadingView()
     }
 }

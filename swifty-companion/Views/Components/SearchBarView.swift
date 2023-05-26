@@ -24,5 +24,6 @@ struct SearchBar: View {
         .background(.white)
         .cornerRadius(20)
         .shadow(radius: 10)
+        .padding()
     }
 }

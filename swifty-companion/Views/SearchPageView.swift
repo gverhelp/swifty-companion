@@ -23,14 +23,13 @@ struct SearchPageView: View {
     var body : some View {
 
             if (!showLoadingView) {
-                ZStack {
+                ZStack() {
                     backgroundColor
                         .edgesIgnoringSafeArea(.all)
 
-                    VStack {
+                    VStack() {
 
                         SearchBar(selectedLogin: $selectedLogin, onCommit: search)
-                            .padding()
                         
                         if showUserDoesntExist {
                             (Text(Image(systemName: "wrongwaysign"))

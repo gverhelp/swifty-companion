@@ -22,10 +22,10 @@ struct HomePageView: View {
                         .fontWeight(.bold)
                         .font(.largeTitle)
                         .padding(10)
-                    
+
                     Divider()
-                    
-                    Text("Want to stalk someone of the 42 network?\nHere's your app!")
+
+                    Text("Want to stalk someone from the 42 network?\nHere's your app!")
                         .bold()
                         .multilineTextAlignment(.center)
                         .padding(10)

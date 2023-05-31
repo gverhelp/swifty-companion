@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     var user: User
     
-    @State var projectsButtonSelected: Bool = false
+    @State var projectsButtonSelected: Bool = true
     @State var skillsButtonSelected: Bool = false
     @State var achievementsButtonSelected: Bool = false
 
@@ -21,69 +21,33 @@ struct ProfileView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
-                    
-                    HStack {
-                        AsyncImage(url: URL(string: user.image.link)) { image in
-                            image
-                                .resizable()
-                                .scaledToFill()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: 125, height: 125)
-                        .clipShape(Circle())
-                        .shadow(radius: 10)
-                        
-                        VStack(spacing: 20) {
-                            Text(user.first_name + " " + user.last_name + "\n(" + user.login + ")")
-                                .padding()
-                                .font(.headline)
-                                .multilineTextAlignment(.center)
-                                .background(.white)
-                                .cornerRadius(10)
-                                .shadow(radius: 10)
-
-                            Gauge(value: CGFloat(user.cursus_users[1].level), in: 1...100) {
-                                Text("Level \(String(format: "%.2f", user.cursus_users[1].level))")
-                            }
-                            .padding()
-                            .font(.headline)
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(radius: 10)
-
-                        }
-                        .padding()
-                    }
-                    .padding()
+                    HeaderProfileView(user: user)
                     
                     ButtonSelectionView(projectsButtonSelected: $projectsButtonSelected, skillsButtonSelected: $skillsButtonSelected, achievementsButtonSelected: $achievementsButtonSelected)
                     
                     if projectsButtonSelected {
-                        ProjectsView()
+                        ProjectsView(user: user)
                     }
                     
                     else if skillsButtonSelected {
-                        SkillsView()
+                        SkillsView(user: user)
                     }
                     
                     else if achievementsButtonSelected {
-                        AchievementsView()
+                        AchievementsView(user: user)
                     }
-                    
-                    Spacer()
                 }
             }
         }
     }
 }
 
-//struct ProfileView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//
-//        let user: User = User.UserExample
-//
-//        ProfileView(user: user)
-//    }
-//}
+struct ProfileView_Previews: PreviewProvider {
+
+    static var previews: some View {
+
+        let user: User = UserExample
+
+        ProfileView(user: user)
+    }
+}

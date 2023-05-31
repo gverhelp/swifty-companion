@@ -32,53 +32,17 @@ struct SearchPageView: View {
                         SearchBar(selectedLogin: $selectedLogin, onCommit: search)
                         
                         if showUserDoesntExist {
-                            (Text(Image(systemName: "wrongwaysign"))
-                                .font(.system(size: 50))
-                                .foregroundColor(backgroundColor)
-                             
-                             + Text("\n\nThis user doesn't exist!\nTry to type another one.")
-                            )
-                            .padding(25)
-                            .background(.white)
-                            .cornerRadius(20)
-                            .shadow(radius: 10)
-                            .multilineTextAlignment(.center)
-                            .padding()
+                            UserDoesntExistView()
                         }
 
                         if showQuestionMarkText {
-                            (Text(Image(systemName: "questionmark.circle.fill"))
-                                .foregroundColor(backgroundColor)
-                                .font(.system(size: 50))
-                             
-                             + Text("\n\nTo look at someone's profile and get all the datas you want to see, just type the login of this person in the search bar!")
-                            )
-                            .padding(25)
-                            .background(.white)
-                            .cornerRadius(20)
-                            .shadow(radius: 10)
-                            .multilineTextAlignment(.center)
-                            .padding()
+                            QuestionMarkTextView()
                         }
 
                         if showSearchResults {
-                            NavigationLink(destination: ProfileView(user: apiCall.getUser())) {
-                                VStack {
-                                    let user = apiCall.getUser()
-                                    Label(selectedLogin.lowercased(), systemImage: "")
-                                        .icon(url: URL(string: user.image.link))
-                                    
-                                    Text(user.login)
-                                        .foregroundColor(.black)
-                                        .font(.headline)
-                                }
-                            }
-                            .padding(10)
-                            .background(.white)
-                            .foregroundColor(backgroundColor)
-                            .cornerRadius(20)
-                            .shadow(radius: 10)
-                            .padding()
+                            let user = apiCall.getUser()
+                            
+                            SearchResultView(user: user)
                         }
                     }
                     .navigationBarTitleDisplayMode(.inline)
@@ -120,26 +84,8 @@ struct SearchPageView: View {
     }
 }
 
-extension View {
-    func icon(url: URL?) -> some View {
-        if let url = url {
-            return AnyView(AsyncImage(url: url) { image in
-                image
-                    .resizable()
-                    .frame(width: 100, height: 80)
-                    .cornerRadius(15)
-            } placeholder: {
-                ProgressView()
-            })
-        } else {
-            return AnyView(Image(systemName: "person"))
-        }
-    }
-}
-
-
-struct SearchPageView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchPageView()
-    }
-}
+//struct SearchPageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchPageView()
+//    }
+//}

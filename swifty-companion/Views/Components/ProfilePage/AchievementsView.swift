@@ -14,9 +14,3 @@ struct AchievementsView: View {
         AchievementsUsersTableView(achievementsUsers: user.achievements)
     }
 }
-
-//struct AchievementsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AchievementsView()
-//    }
-//}

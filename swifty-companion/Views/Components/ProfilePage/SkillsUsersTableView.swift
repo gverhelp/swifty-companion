@@ -16,24 +16,23 @@ struct SkillsUsersTableView: View {
                 
                 VStack(alignment: .leading) {
                     
-                    Text("Skill name: \(skillUser.name)")
-                    
-                    Text("Level: \(String(skillUser.level))")
+                    (Text("Skill name: ")
+                        .font(.headline)
+                     + Text(skillUser.name))
+
+                    ProgressView(value: getLevelBar(userLevel: skillUser.level)) {
+                        Text("Level " + String(skillUser.level))
+                    }
+                    .tint(backgroundColor)
                 }
             }
         }
-        .padding(10)
-        .background(.white)
         .cornerRadius(20)
         .shadow(radius: 10)
-        .padding()
+        .padding(.horizontal)
     }
-}
-
-
-struct SkillsUsersTableView_Previews: PreviewProvider {
-    static var previews: some View {
-        let skillsUsers: [Skills] = SkillsExample
-        SkillsUsersTableView(skillsUsers: skillsUsers)
+    
+    private func getLevelBar(userLevel: Float) -> Float {
+        return userLevel - Float(Int(userLevel))
     }
 }

@@ -12,35 +12,33 @@ struct ProjectsUsersTableView: View {
     
     var body: some View {
         List {
+
             ForEach(projectsUsers) { projectUser in
                 
                 VStack(alignment: .leading) {
                     
-                    Text("Project name: \(projectUser.project.name)")
-                    
-                    Text("Status: \(projectUser.status)")
+                    (Text("Project name: ")
+                        .font(.headline)
+                     + Text(projectUser.project.name)
+                     + Text("\nStatus: ")
+                        .font(.headline)
+                     + Text(projectUser.status))
                     
                     if let finalMark = projectUser.final_mark {
-                        Text("Final Mark: \(finalMark)")
+                        (Text("Final Mark: ")
+                            .font(.headline)
+                        + Text("\(finalMark)"))
                     } else {
-                        Text("Final Mark: N/A")
+                        (Text("Final Mark: ")
+                            .font(.headline)
+                         + Text("N/A"))
                     }
                 }
             }
         }
-        .padding(10)
-        .background(.white)
+        //.scrollContentBackground(.hidden)
         .cornerRadius(20)
         .shadow(radius: 10)
-        .padding()
-    }
-}
-
-struct ProjectsUsersTableView_Previews: PreviewProvider {
-
-    static var previews: some View {
-        let projectsUsers: [ProjectsUsers] = ProjectsUsersExample
-        
-        ProjectsUsersTableView(projectsUsers: projectsUsers)
+        .padding(.horizontal)
     }
 }

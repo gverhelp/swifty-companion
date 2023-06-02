@@ -24,9 +24,3 @@ struct UserDoesntExistView: View {
         .padding()
     }
 }
-
-//struct UserDoesntExistView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserDoesntExistView()
-//    }
-//}

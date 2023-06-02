@@ -16,24 +16,17 @@ struct AchievementsUsersTableView: View {
                 
                 VStack(alignment: .leading) {
                     
-                    Text("Achievement name: \(achievementUser.name)")
-                    
-                    Text("Description: \(String(achievementUser.description))")
+                    (Text("Achievement name: ")
+                        .font(.headline)
+                     + Text(achievementUser.name)
+                     + Text("\nDescription: ")
+                        .font(.headline)
+                     + Text(String(achievementUser.description)))
                 }
             }
         }
-        .padding(10)
-        .background(.white)
         .cornerRadius(20)
         .shadow(radius: 10)
-        .padding()
-    }
-}
-
-struct AchievementsUsersTableView_Previews: PreviewProvider {
-    static var previews: some View {
-        let achievementsUsers = AchievementsUserExample
-        
-        AchievementsUsersTableView(achievementsUsers: achievementsUsers)
+        .padding(.horizontal)
     }
 }

@@ -54,19 +54,18 @@ struct AchievementsUser: Codable, Identifiable {
     var description: String
 }
 
-var AchievementsUserExample = [AchievementsUser(id: 1, name: "You're a doggo", description: "Bark bark"),
-                               AchievementsUser(id: 2, name: "You're a cat", description: "Miouw miouw")]
-
-var ProjectNameExample = ProjectName(name: "ft_containers")
-
-var ProjectsUsersExample = [ProjectsUsers(id: 1, final_mark: 100, status: "Finished", project: ProjectNameExample),
-                            ProjectsUsers(id: 2, final_mark: 0, status: "In progress", project: ProjectNameExample)]
-    
-var SkillsExample = [Skills(id: 1, name: "Les cramptés", level: 5),
-                     Skills(id: 2, name: "apagnan", level: 8)]
-
-var CursusUsersExample = [CursusUsers(grade: "Member", level: 10.58, skills: SkillsExample, blackholed_at: nil),
-                                 CursusUsers(grade: "Member", level: 10.58, skills: SkillsExample, blackholed_at: nil)]
-
-var UserExample = User(login: "gverhelp", first_name: "Garreth", last_name: "Verhelpen", email: "gverhelp@student.s19.be", image: UserImage(link: "https://cdn.intra.42.fr/users/911f944874d852518d556f302db972f1/gverhelp.JPG"), correction_point: 8, wallet: 259, cursus_users: CursusUsersExample, projects_users: ProjectsUsersExample, achievements: AchievementsUserExample)
-
+//var AchievementsUserExample = [AchievementsUser(id: 1, name: "You're a doggo", description: "Bark bark"),
+//                               AchievementsUser(id: 2, name: "You're a cat", description: "Miouw miouw")]
+//
+//var ProjectNameExample = ProjectName(name: "ft_containers")
+//
+//var ProjectsUsersExample = [ProjectsUsers(id: 1, final_mark: 100, status: "Finished", project: ProjectNameExample),
+//                            ProjectsUsers(id: 2, final_mark: 0, status: "In progress", project: ProjectNameExample)]
+//    
+//var SkillsExample = [Skills(id: 1, name: "Les cramptés", level: 5.4),
+//                     Skills(id: 2, name: "apagnan", level: 8.9)]
+//
+//var CursusUsersExample = [CursusUsers(grade: "Member", level: 10.58, skills: SkillsExample, blackholed_at: nil),
+//                                 CursusUsers(grade: "Member", level: 10.58, skills: SkillsExample, blackholed_at: nil)]
+//
+//var UserExample = User(login: "gverhelp", first_name: "Garreth", last_name: "Verhelpen", email: "gverhelp@student.s19.be", image: UserImage(link: "https://cdn.intra.42.fr/users/911f944874d852518d556f302db972f1/gverhelp.JPG"), correction_point: 8, wallet: 259, cursus_users: CursusUsersExample, projects_users: ProjectsUsersExample, achievements: AchievementsUserExample)

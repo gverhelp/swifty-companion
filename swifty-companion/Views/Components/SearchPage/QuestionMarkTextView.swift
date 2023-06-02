@@ -23,9 +23,3 @@ struct QuestionMarkTextView: View {
         .padding()
     }
 }
-
-//struct QuestionMarkTextView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        QuestionMarkTextView()
-//    }
-//}

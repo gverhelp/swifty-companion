@@ -77,7 +77,6 @@ class APICall: ObservableObject {
             do {
                 token = try await generateToken()
                 tokenGenerated = true
-                print(token as Any)
             } catch let error {
                 print("Error: \(error.localizedDescription)")
             }
@@ -89,7 +88,6 @@ class APICall: ObservableObject {
         do {
             user = try await callGetUser(login: login)
             doUserExist = true
-            print(user as Any)
         } catch let error {
             doUserExist = false
             print("Error: \(error.localizedDescription)")

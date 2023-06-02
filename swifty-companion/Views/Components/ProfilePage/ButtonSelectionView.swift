@@ -15,53 +15,49 @@ struct ButtonSelectionView: View {
     
     var body: some View {
         
-        HStack(spacing: 10) {
-            Button("Projects") {
+        HStack {
+            Button{
                 projectsButtonSelected = true
                 skillsButtonSelected = false
                 achievementsButtonSelected = false
+            } label: {
+                Image(systemName: "tray.full.fill")
+                    .foregroundColor(backgroundColor)
             }
-            .frame(height: 45)
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
             .frame(maxWidth: .infinity)
-            .font(.system(size: 15))
-            .background(.white)
-            .foregroundColor(backgroundColor)
-            .cornerRadius(10)
+            .tint(.white)
             .shadow(radius: 10)
             
-            Button("Skills") {
+            Button {
                 projectsButtonSelected = false
                 skillsButtonSelected = true
                 achievementsButtonSelected = false
+            } label: {
+                Image(systemName: "brain")
+                    .foregroundColor(backgroundColor)
             }
-            .frame(height: 45)
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
             .frame(maxWidth: .infinity)
-            .font(.system(size: 15))
-            .background(.white)
-            .foregroundColor(backgroundColor)
-            .cornerRadius(10)
+            .tint(.white)
             .shadow(radius: 10)
             
-            Button("Achievements") {
+            Button {
                 projectsButtonSelected = false
                 skillsButtonSelected = false
                 achievementsButtonSelected = true
+            } label: {
+                Image(systemName: "trophy")
+                    .foregroundColor(backgroundColor)
             }
-            .frame(height: 45)
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
             .frame(maxWidth: .infinity)
-            .font(.system(size: 15))
-            .background(.white)
-            .foregroundColor(backgroundColor)
-            .cornerRadius(10)
+            .tint(.white)
             .shadow(radius: 10)
         }
-        .padding(.horizontal)
-
+        .padding()
     }
 }
-
-//struct ButtonSelectionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ButtonSelectionView()
-//    }
-//}

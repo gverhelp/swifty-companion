@@ -11,14 +11,6 @@ struct ProjectsView: View {
     var user: User
     
     var body: some View {
-        VStack {
             ProjectsUsersTableView(projectsUsers: user.projects_users)
-        }
     }
 }
-
-//struct ProjectsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProjectsView()
-//    }
-//}

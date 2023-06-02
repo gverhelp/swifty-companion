@@ -24,8 +24,6 @@ struct HeaderProfileView: View {
                 .frame(width: 125, height: 125)
                 .clipShape(Circle())
                 .shadow(radius: 10)
-                        
-                //Divider()
                 
                 Text(user.first_name + " " + user.last_name + "\n(" + user.login + ")")
                     .font(.headline)
@@ -33,29 +31,35 @@ struct HeaderProfileView: View {
             }
             
             VStack {
-                Text(user.email
-                     + "\nCorrection points: \(user.correction_point)"
-                     + "\nWallet:\(user.wallet)")
-                    //.scaledToFill()
+                (Text("\(user.email)")
+                 + Text("\nCorrection points: ")
                     .font(.headline)
+                 + Text("\(user.correction_point)")
+                 + Text("\nWallet: ")
+                    .font(.headline)
+                 + Text("\(user.wallet)"))
                     .multilineTextAlignment(.center)
 
-                if let grade = user.cursus_users[1].grade {
-                    Text("\(grade)")
+                if let grade = user.cursus_users.indices.contains(1) ? user.cursus_users[1].grade : user.cursus_users.first?.grade {
+                    
+                    (Text("Grade: ")
                         .font(.headline)
+                     + Text("\(grade)"))
                 } else {
-                    Text("N/A")
+                    (Text("Grade: ")
                         .font(.headline)
+                     + Text("N/A"))
                 }
                 
                 Divider()
                 
                 if let userLevel = user.cursus_users.indices.contains(1) ? user.cursus_users[1].level : user.cursus_users.first?.level {
                     
-                    Gauge(value: CGFloat(userLevel), in: 1...100) {
+                    Gauge(value: getLevelBar(userLevel: userLevel), in: 0...1) {
                         Text("Level \(String(userLevel))")
+                            .font(.headline)
                     }
-                    .font(.headline)
+                    .tint(backgroundColor)
                 }
             }
         }
@@ -63,14 +67,10 @@ struct HeaderProfileView: View {
         .background()
         .cornerRadius(10)
         .shadow(radius: 10)
-        .padding()
+        .padding(.horizontal)
     }
-}
-
-struct HeaderProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        let user: User = UserExample
-        
-        HeaderProfileView(user: user)
+    
+    private func getLevelBar(userLevel: Float) -> Float {
+        return userLevel - Float(Int(userLevel))
     }
 }

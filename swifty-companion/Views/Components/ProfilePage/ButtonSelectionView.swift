@@ -58,6 +58,6 @@ struct ButtonSelectionView: View {
             .tint(.white)
             .shadow(radius: 10)
         }
-        .padding()
+        .padding(.horizontal)
     }
 }

@@ -10,6 +10,8 @@ import SwiftUI
 struct HeaderProfileView: View {
     var user: User
     
+    let gradient = Gradient(colors: [.green, .yellow, .red])
+    
     var body: some View {
         
         HStack {
@@ -54,17 +56,19 @@ struct HeaderProfileView: View {
                 Divider()
                 
                 if let userLevel = user.cursus_users.indices.contains(1) ? user.cursus_users[1].level : user.cursus_users.first?.level {
+                
+                    let percentage = getLevelBar(userLevel: userLevel)
                     
-                    Gauge(value: getLevelBar(userLevel: userLevel), in: 0...1) {
-                        Text("Level \(String(userLevel))")
+                    Gauge(value: percentage, in: 0...1) {
+                        Text("Level \(Int(userLevel)) - \(String(Int(percentage * 100)))%")
                             .font(.headline)
                     }
-                    .tint(backgroundColor)
+                    .tint(gradient)
                 }
             }
         }
         .padding()
-        .background()
+        .background(.white)
         .cornerRadius(10)
         .shadow(radius: 10)
         .padding(.horizontal)

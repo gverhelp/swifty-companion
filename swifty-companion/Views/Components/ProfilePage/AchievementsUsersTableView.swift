@@ -16,12 +16,9 @@ struct AchievementsUsersTableView: View {
                 
                 VStack(alignment: .leading) {
                     
-                    (Text("Achievement name: ")
+                    Text(achievementUser.name)
                         .font(.headline)
-                     + Text(achievementUser.name)
-                     + Text("\nDescription: ")
-                        .font(.headline)
-                     + Text(String(achievementUser.description)))
+                     Text(String(achievementUser.description))
                 }
             }
         }

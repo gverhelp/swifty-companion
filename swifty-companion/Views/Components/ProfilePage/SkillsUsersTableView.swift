@@ -16,9 +16,8 @@ struct SkillsUsersTableView: View {
                 
                 VStack(alignment: .leading) {
                     
-                    (Text("Skill name: ")
+                     Text(skillUser.name)
                         .font(.headline)
-                     + Text(skillUser.name))
 
                     ProgressView(value: getLevelBar(userLevel: skillUser.level)) {
                         Text("Level " + String(skillUser.level))

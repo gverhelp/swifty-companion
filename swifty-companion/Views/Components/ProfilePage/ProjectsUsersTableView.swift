@@ -28,7 +28,6 @@ struct ProjectsUsersTableView: View {
                     }
                 }
             }
-            //.scrollContentBackground(.hidden)
             .cornerRadius(20)
             .shadow(radius: 10)
             .padding(.horizontal)

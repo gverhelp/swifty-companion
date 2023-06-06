@@ -9,11 +9,11 @@ import SwiftUI
 
 struct HeaderProfileView: View {
     var user: User
-    
+
     let gradient = Gradient(colors: [.green, .yellow, .red])
-    
+
     var body: some View {
-        
+
         HStack {
             VStack {
                 AsyncImage(url: URL(string: user.image.link)) { image in
@@ -33,7 +33,8 @@ struct HeaderProfileView: View {
             }
             
             VStack {
-                (Text("\(user.email)")
+                (Text("\(user.email)\n")
+                    .font(.system(size: 13))
                  + Text("\nCorrection points: ")
                     .font(.headline)
                  + Text("\(user.correction_point)")

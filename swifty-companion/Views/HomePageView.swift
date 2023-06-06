@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let backgroundColor = Color.orange
+let backgroundColor = Color.cyan
 
 struct HomePageView: View {
     
